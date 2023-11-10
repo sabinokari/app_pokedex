@@ -1,7 +1,13 @@
+import 'package:app_pokedex/widgets/item_type_widget.dart';
 import 'package:flutter/material.dart';
 
 class ItemPokemonWidget extends StatelessWidget {
-  const ItemPokemonWidget({super.key});
+  String name;
+  String image;
+  List<String> type;
+
+  ItemPokemonWidget(
+      {required this.name, required this.image, required this.type});
 
   @override
   Widget build(BuildContext context) {
@@ -22,37 +28,24 @@ class ItemPokemonWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            right: -15,
-            bottom: -10,
-            child: Image.network(
-                "http://www.serebii.net/pokemongo/pokemon/001.png"),
-          ),
+              right: -15,
+              bottom: -10,
+              child: Text("Imagen") //,Image.network(image),
+              ),
           Padding(
             padding:
                 const EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
             child: Column(
               children: [
                 Text(
-                  "Bulbasaur",
+                  name,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 6.0),
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 14.0, vertical: 4.0),
-                  child: Text(
-                    "Grass",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.4),
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                )
+                ItemTypeWidget(),
               ],
             ),
           ),

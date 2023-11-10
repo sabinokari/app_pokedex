@@ -61,7 +61,16 @@ class _HomePageState extends State<HomePage> {
                   crossAxisSpacing: 12.0,
                   childAspectRatio: 1.4,
                   physics: ScrollPhysics(),
-                  children: pokemons.map((e) => ItemPokemonWidget()).toList(),
+                  children: pokemons
+                      .map(
+                        (e) => ItemPokemonWidget(
+                          name: e["name"],
+                          image: e["img"],
+                          type:
+                              List<String>.from(e["type"].map((item) => item)),
+                        ),
+                      )
+                      .toList(),
                 ),
               ],
             ),
